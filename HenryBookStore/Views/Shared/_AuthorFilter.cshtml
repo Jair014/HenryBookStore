@@ -1,0 +1,25 @@
+﻿@using HenryBookStore.Models;
+@model HenryBookStore.Models.AuthorFilter
+
+
+<h3>Search By Author</h3>
+
+
+<!--Drop down list that retrieves all options-->
+@using (Html.BeginForm("Index", "AuthorFilter", FormMethod.Post))
+{
+    <label for="author">Author</label>
+    @Html.DropDownListFor(a => a.AuthorSelected, Model.AllAuthorOptions, "Please Pick an Author",
+   new { onchange = "this.form.submit();" })
+
+}
+
+
+
+
+
+
+
+
+
+

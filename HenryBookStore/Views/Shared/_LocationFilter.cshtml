@@ -1,0 +1,19 @@
+﻿@using HenryBookStore.Models;
+@model LocationFilter
+
+
+<h3>Search By Location</h3>
+
+
+
+<!--Drop down list that retrieves all options-->
+@using (Html.BeginForm("Index", "LocationFilter", FormMethod.Post))
+{
+    <label for="location">Location</label>
+    @Html.DropDownListFor(l => l.LocationSelected, Model.AllLocationOptions, "Please Pick a Location",
+    new { onchange = "this.form.submit();" })
+}
+
+
+
+

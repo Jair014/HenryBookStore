@@ -1,0 +1,205 @@
+﻿
+/* General Body and Background */
+body {
+    background-color: #d3d3a4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Header Section */
+header {
+    background-image: url("Images/books.jpg");
+    background-color: #3a3a3a; 
+    background-size: cover;
+    background-position: center;
+    height: 120px; 
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+    header h1 {
+        color: #f4d749; 
+        font-size: 48px; 
+        margin: 0;
+        position: absolute;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+    }
+
+    header .subheader {
+        color: #505050;
+        font-style: italic;
+        position: absolute;
+        bottom: 10px; 
+        width: 100%; 
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+.header-container {
+    background-color: transparent; 
+    text-align: center;
+    padding: 0;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+.subheader {
+    font-style: italic;
+    color: #505050;
+    margin-top: 5px;
+}
+
+/* Main Wrapper for Sidebar and Content */
+.main-wrapper {
+    display: flex;
+    margin: 20px;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 200px;
+    background-color: #f5f5dc; 
+    padding: 15px;
+    border: 1px solid #333; 
+    border-radius: 5px; 
+}
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+            .sidebar ul li a {
+                text-decoration: none;
+                color: #0000ff; 
+                font-size: 16px;
+                display: block;
+                padding: 5px;
+            }
+
+                .sidebar ul li a:hover {
+                    background-color: #e6e6fa; 
+                    border-radius: 3px;
+                    text-decoration: underline;
+                }
+
+/* Main content area */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+/* Book Details Section */
+.book-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .book-details img {
+        max-width: 397px;
+        max-height: 600px;
+    }
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Inventory Grid */
+.inventory-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+    .inventory-grid .book-item {
+        width: 150px;
+        text-align: center;
+    }
+
+        .inventory-grid .book-item img {
+            max-width: 125px;
+            max-height: 193px;
+        }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3a3a3a;
+    color: white;
+    font-size: 12px;
+}
+
+    footer p {
+        margin: 5px 0;
+    }
+
+    footer a {
+        color: #f4d749;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+    .contact-form label {
+        font-weight: bold;
+    }
+
+    .contact-form input, .contact-form textarea, .contact-form select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+   
+        .contact-form input[type="submit"], .contact-form input[type="reset"] {
+            width: auto;
+            cursor: pointer;
+        }
+
+            .contact-form input[type="submit"]:hover, .contact-form input[type="reset"]:hover {
+                background-color: #e6e6fa;
+            }
+
+/* Table (for book information) */
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .book-table th, .book-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .book-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }

@@ -1,0 +1,36 @@
+﻿@model HenryBookStore.Models.PublisherFilter
+@{
+    ViewBag.Title = "BrowsePublisher";
+}
+
+<p>@Html.Partial("_PublisherFilter", Model)</p>
+
+<!--Looping logic to get books-->
+@if (Model.Books != null && Model.Books.Any())
+{
+<h3>Books by Selected Publisher</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Book Code</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Paperback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var book in Model.Books)
+                        {
+        <tr>
+            <td>@Html.ActionLink(book.BOOK_CODE.ToString(), "Details", "Home", new { id = book.BOOK_CODE }, null)</td>
+            <td>@book.TITLE</td>
+            <td>@book.TYPE</td>
+            <td>@string.Format("{0:0.00}", book.PRICE)</td>
+            <td>@book.PAPERBACK</td>
+        </tr>}
+                    </tbody>
+                </table>
+  }
+
+

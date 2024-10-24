@@ -1,0 +1,27 @@
+﻿@using System.Globalization;
+@using HenryBookStore.Models.EntityFramework;
+@using HenryBookStore.Models;
+@model IEnumerable<BOOK>
+@{
+    ViewBag.Title = "Inventory";
+}
+
+
+
+<h2>Browse Inventory</h2>
+
+<div class="inventory-grid">
+
+    @foreach (var book in Model)
+    {
+
+    <div class="book-item">
+        <a href="@Url.Action("Details", "Home", new { id = book.BOOK_CODE })">
+        <img src="~/Content/Images/@book.BOOK_CODE/thumb.jpg" ) alt="@book.BOOK_CODE" />
+            </a>
+    </div>
+    }
+
+</div>
+
+

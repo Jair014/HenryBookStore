@@ -1,0 +1,49 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Henry's Bookstore</title>
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+<body>
+
+
+    <header>
+        <img alt="BooksHeader" src="~/Content/Images/books.jpg" style="display:none;" /> 
+        <h1>Henry's Bookstore</h1>
+        <p class="subheader">For INTERNAL Use Only</p>
+    </header>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Browse Inventory", "Inventory", "Home")</li>
+                <li>@Html.ActionLink("Browse by Author", "BrowseAuthor", "Home")</li>
+                <li>@Html.ActionLink("Browse by Publisher", "BrowsePublisher", "Home")</li>
+                <li>@Html.ActionLink("Browse by Location", "BrowseLocation", "Home")</li>
+                <li>@Html.ActionLink("Contact Management", "Contact", "Home")</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>This page is created for educational purposes only. No images or content will be published to the Internet for public use. Book cover images were retrieved from <a href="https://www.barnesandnoble.com">Barnes and Noble</a>.</p>
+    </footer>
+
+    <!-- Scripts -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

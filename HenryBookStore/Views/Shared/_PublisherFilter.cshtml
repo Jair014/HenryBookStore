@@ -1,0 +1,15 @@
+﻿@using HenryBookStore.Models;
+@model PublisherFilter
+
+
+<h3>Search By Publisher</h3>
+
+
+<!--Drop down list that retrieves all options-->
+@using (Html.BeginForm("Index", "PublisherFilter", FormMethod.Post))
+{
+    <label for="publisher">Publisher</label>
+    @Html.DropDownListFor(p => p.PublisherSelected, Model.AllPublisherOptions, "Please Pick a Publisher",
+    new { onchange = "this.form.submit();" })
+}
+

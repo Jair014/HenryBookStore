@@ -1,0 +1,88 @@
+﻿@model HenryBookStore.Models.Contact
+@{
+    ViewBag.Title = "Contact";
+}
+
+
+
+<!--show data back to user-->
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    function ShowContact(contactdata) {
+        var target = $("#crsForm");
+        target.empty();
+
+        if (!registerdata) {
+            target.append("<em>No data raceived!</em>")
+
+        } else {
+            target.append("<p>We have received the following Info: " +
+                "<strong>" + contactdata.FirstName + ", " +
+               
+                contactdata.LastName + ", " +
+                contactdata.EmailAddress + ", " +
+                contactdata.ConfirmEmail + ", " +
+                contactdata.Branch + ", " +
+                contactdata.Comments +", "  + "</strong></p>");
+        }
+
+    }
+    </script>
+}
+
+<h2>Share your Comments with Management</h2>
+
+
+<div id="loading" style="display: none">
+    <img src="~/Content/Images/ajax_pleasewait.gif" />  <p> Please wait and watch the spinning wheel.</p>
+</div>
+<div id="crsForm">
+    @using (Ajax.BeginForm("Contact", "Home", new AjaxOptions
+
+    {
+        HttpMethod = "Post",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "loading",
+        LoadingElementDuration = 4000,
+        OnSuccess = "ShowContact"
+    }))
+
+    {
+        <table class="contact-form">
+            <tr>
+                <td><label for="FirstName">First Name</label></td>
+                <td>@Html.TextBoxFor(x => x.FirstName) </td>
+            </tr>
+
+            <tr>
+                <td><label for="LastName">Last Name</label></td>
+                <td>@Html.TextBoxFor(x => x.LastName) </td>
+            </tr>
+            <tr>
+                <td><label for="Email">Email Address</label></td>
+                <td>@Html.TextBoxFor(x => x.Email) </td>
+            </tr>
+            <tr>
+                <td><label for="ConfirmEmail">Confirm Email</label></td>
+                <td>@Html.TextBoxFor(x => x.ConfirmEmail) </td>
+            </tr>
+            <tr>
+
+                <td><label for="Branch"> Branch</label></td>
+                <td>@Html.TextBoxFor(x => x.Branch) </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="reset" value="Clear Form" />
+                    <input type="submit" />
+                </td>
+
+            </tr>
+        </table>
+        <label for="comments">Comments:</label>
+<textarea class="contact-form">@Html.TextAreaFor(x=> x.Comments)</textarea>
+
+    }
+    </div>

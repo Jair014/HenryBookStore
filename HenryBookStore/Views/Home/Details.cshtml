@@ -1,0 +1,161 @@
+﻿@model HenryBookStore.Models.EntityFramework.BOOK
+<h2>@Model.TITLE</h2>
+<div class="book-details-container">
+    <div class="book-image">
+        <img src="~/Content/Images/@Model.BOOK_CODE/large.jpg" alt="@Model.TITLE" />
+    </div>
+
+    <div class="book-info">
+        <table class="table">
+            <tr>
+                <td><strong>Title</strong></td>
+                <td>@Model.TITLE</td>
+            </tr>
+            <tr>
+                <td><strong>Type</strong></td>
+                <td>@Model.TYPE</td>
+            </tr>
+            <tr>
+                <td><strong>Price</strong></td>
+                <td>@Model.PRICE</td>
+            </tr>
+            <tr>
+                <td><strong>Paperback?</strong></td>
+                <td>@(Model.PAPERBACK == "1"? "Yes" : "No")</td>
+            </tr>
+            <tr>
+                <td><strong>Publisher</strong></td>
+                <td>@Html.ActionLink(Model.PUBLISHER.PUBLISHER_NAME, "BrowsePublisher", new { id = Model.PUBLISHER_CODE })</td>
+            </tr>
+            <tr>
+                <td><strong>Book Code</strong></td>
+                <td>@Model.BOOK_CODE</td>
+            </tr>
+            <tr>
+                <td><strong>Written By</strong></td>
+                <td>@Html.ActionLink(Model.WROTEs.FirstOrDefault().AUTHOR.AUTHOR_FIRST + " " + Model.WROTEs.FirstOrDefault().AUTHOR.AUTHOR_LAST, "BrowseAuthor", new { id = Model.WROTEs.FirstOrDefault().AUTHOR.AUTHOR_NUM })</td>
+            </tr>
+        </table>
+
+        <h4>Inventory by Location</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>On Hand Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var inventory in Model.INVENTORies)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(inventory.BRANCH.BRANCH_NAME, "BrowseLocation", new { id = inventory.BRANCH_NUM })</td>
+                        <td>@inventory.ON_HAND</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .book-details-container {
+        display: flex;
+        gap: 20px;
+    }
+
+    .book-image img {
+        width: 300px;
+        height: auto;
+    }
+
+    .book-info {
+        width: 100%;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table td {
+            vertical-align: top;
+        }
+
+    h4 {
+        margin-top: 20px;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model HenryBookStore.Models.EntityFramework.BOOK
+
+
+    <h2>@Model.TITLE</h2>
+    <img src="~/Content/Images/@Model.BOOK_CODE/large.jpg" alt="@Model.TITLE" />
+
+    <table class="table">
+        <tr>
+            <td><strong>Book Code</strong></td>
+            <td>@Model.BOOK_CODE</td>
+        </tr>
+        <tr>
+            <td><strong>Type</strong></td>
+            <td>@Model.TYPE</td>
+        </tr>
+        <tr>
+            <td><strong>Price</strong></td>
+            <td>@Model.PRICE</td>
+        </tr>
+        <tr>
+            <td><strong>Paperback</strong></td>
+            <td>@Model.PAPERBACK</td>
+        </tr>
+        <tr>
+            <td><strong>Publisher</strong></td>
+            <td>@Html.ActionLink(Model.PUBLISHER.PUBLISHER_NAME, "BrowsePublisher", new { id = Model.PUBLISHER_CODE }, null)</td>
+        </tr>
+    </table>*@
+

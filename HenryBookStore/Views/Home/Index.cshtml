@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Henry's Bookstore - Home";
+}
+
+<div class="home-page">
+   
+    <div class="inventory-grid">
+        <div class="book-item">
+            <img src="~/Content/Images/inventory.jpg" alt="Inventory">
+            <p><a href="@Url.Action("Inventory", "Home")">Browse Inventory</a></p>
+        </div>
+        <div class="book-item">
+            <img src="~/Content/Images/author.jpg" alt="Author">
+            <p><a href="@Url.Action("BrowseAuthor", "Home")">Browse by Author</a></p>
+        </div>
+        <div class="book-item">
+            <img src="~/Content/Images/publisher.jpg" alt="Publisher">
+            <p><a href="@Url.Action("BrowsePublisher", "Home")">Browse by Publisher</a></p>
+        </div>
+        <div class="book-item">
+            <img src="~/Content/Images/bookstore.jpg" alt="Location">
+            <p><a href="@Url.Action("BrowseLocation", "Home")">Browse by Location</a></p>
+        </div>
+    </div>
+</div>
